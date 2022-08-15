@@ -357,8 +357,10 @@ class DefaultAssetPickerProvider
       size: pageSize,
     );
     if (page == 0) {
+      list.removeWhere((AssetEntity element) => element.duration>60);
       _currentAssets = list;
     } else {
+      list.removeWhere((AssetEntity element) => element.duration>60);
       _currentAssets.addAll(list);
     }
     _hasAssetsToDisplay = currentAssets.isNotEmpty;
